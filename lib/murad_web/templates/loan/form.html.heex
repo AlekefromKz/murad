@@ -6,15 +6,15 @@
   <% end %>
 
   <%= label f, :email %>
-  <%= text_input f, :email %>
+  <%= text_input f, :email, id: "email" %>
   <%= error_tag f, :email %>
 
   <%= label f, :amount %>
-  <%= number_input f, :amount, step: "any" %>
+  <%= number_input f, :amount, step: "any", id: "amount" %>
   <%= error_tag f, :amount %>
 
   <%= label f, :term %>
-  <%= number_input f, :term %>
+  <%= number_input f, :term, id: "term" %>
   <%= error_tag f, :term %>
 
   <div>

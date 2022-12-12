@@ -18,7 +18,7 @@ config :murad, Murad.Repo,
 config :murad, MuradWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4001],
   secret_key_base: "+4lkJWbJACen2k2FkgJzqC8KevoMFyU5ChwjTLGA5xeUJt7yRRqq8y6+OhkdUiq0",
-  server: false
+  server: true
 
 # In test we don't send emails.
 config :murad, Murad.Mailer, adapter: Swoosh.Adapters.Test
