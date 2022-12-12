@@ -6,18 +6,18 @@
   <% end %>
 
   <%= label f, :full_name %>
-  <%= text_input f, :full_name %>
+  <%= text_input f, :full_name, id: "full_name" %>
   <%= error_tag f, :full_name %>
 
   <%= label f, :email %>
-  <%= text_input f, :email %>
+  <%= text_input f, :email, id: "email" %>
   <%= error_tag f, :email %>
 
   <%= label f, :monthly_income %>
-  <%= number_input f, :monthly_income, step: "any" %>
+  <%= number_input f, :monthly_income, id: "monthly_income", step: "any" %>
   <%= error_tag f, :monthly_income %>
 
   <div>
-    <%= submit "Save" %>
+    <%= submit "Save", id: "create_user" %>
   </div>
 </.form>

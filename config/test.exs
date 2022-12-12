@@ -16,7 +16,7 @@ config :murad, Murad.Repo,
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :murad, MuradWeb.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 4002],
+  http: [ip: {127, 0, 0, 1}, port: 4001],
   secret_key_base: "+4lkJWbJACen2k2FkgJzqC8KevoMFyU5ChwjTLGA5xeUJt7yRRqq8y6+OhkdUiq0",
   server: false
 
@@ -28,3 +28,6 @@ config :logger, level: :warn
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :hound, driver: "chrome_driver"
+config :murad, sql_sandbox: true
