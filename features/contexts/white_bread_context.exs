@@ -50,10 +50,12 @@ defmodule WhiteBreadContext do
   end
 
   when_ ~r/^I submit the loan request$/, fn state ->
+    click({:id, "submit_loan"})
     {:ok, state}
   end
 
   then_ ~r/^I should receive a confirmation message$/, fn state ->
+    assert visible_in_page? ~r/Loan created successfully./
     {:ok, state}
   end
 end
