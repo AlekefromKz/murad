@@ -2,11 +2,7 @@ defmodule WhiteBreadContext do
   use WhiteBread.Context
   use Hound.Helpers
   alias Murad.{Repo, Accounts.User, Accounts.Loan}
-  use Ecto.Schema
-  alias Murad.Accounts
-  import Ecto.Query, only: [from: 2]
   import Ecto.Changeset
-  require Logger
 
   feature_starting_state fn  ->
     Application.ensure_all_started(:hound)
@@ -19,8 +15,7 @@ defmodule WhiteBreadContext do
   scenario_finalize fn _status, _state ->
     Repo.delete_all(Loan)
     Repo.delete_all(User)
-    # Hound.end_session
-    nil
+    Hound.end_session
   end
 
   given_ ~r/^the following users are existing$/, fn state, %{table_data: table}  ->

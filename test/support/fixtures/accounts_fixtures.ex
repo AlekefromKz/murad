@@ -11,9 +11,9 @@ defmodule Murad.AccountsFixtures do
     {:ok, user} =
       attrs
       |> Enum.into(%{
-        email: "some email",
-        full_name: "some full_name",
-        monthly_income: "120.5"
+        email: "delofeu@gmail.com",
+        full_name: "Delofeu Tumasi",
+        monthly_income: "1000"
       })
       |> Murad.Accounts.create_user()
 
@@ -28,8 +28,8 @@ defmodule Murad.AccountsFixtures do
       attrs
       |> Enum.into(%{
         amount: "120.5",
-        email: "some email",
-        term: 42
+        email: "delofeu@gmail.com",
+        term: 10
       })
       |> Murad.Accounts.create_loan()
 

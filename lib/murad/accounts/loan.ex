@@ -88,19 +88,9 @@ defmodule Murad.Accounts.Loan do
         monthly_income = Float.parse(to_string(hd(Repo.all(query)))) |> elem(0)
 
         monthly_amount = total_amount / (term * 12)
-        # Logger.error(changeset)
-        # Logger.error(changeset)
-        # Logger.error(changeset)
-        # Logger.error(changeset)
 
         put_change(changeset, :interest_ratio, interest_ratio)
-        put_change(changeset, :monthly_amount, monthly_amount)
-
-        # Logger.error(changeset)
-        # Logger.error(changeset)
-        # Logger.error(changeset)
-        # Logger.error(changeset)
-
+        put_change(changeset, :interest_ratio, monthly_amount)
 
         case monthly_amount > monthly_income * 0.4 do
           true -> add_error(changeset, :amount, "You can't pay more than 40 % of your salary")
