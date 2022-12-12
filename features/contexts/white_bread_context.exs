@@ -1,12 +1,11 @@
 defmodule WhiteBreadContext do
   use WhiteBread.Context
   use Hound.Helpers
-  alias Murad.{Repo, Accounts.User}
+  alias Murad.{Repo, Accounts.User, Accounts.Loan}
   use Ecto.Schema
   alias Murad.Accounts
   import Ecto.Query, only: [from: 2]
   import Ecto.Changeset
-  alias Murad.Repo
   require Logger
 
   feature_starting_state fn  ->
@@ -18,6 +17,8 @@ defmodule WhiteBreadContext do
     %{}
   end
   scenario_finalize fn _status, _state ->
+    Repo.delete_all(Loan)
+    Repo.delete_all(User)
     # Hound.end_session
     nil
   end
@@ -25,14 +26,7 @@ defmodule WhiteBreadContext do
   given_ ~r/^the following users are existing$/, fn state, %{table_data: table}  ->
     table
     |> Enum.map(fn user -> User.changeset(%User{}, user) end)
-    |> Enum.each(fn changeset ->
-        query = from o in User, where: o.email == ^changeset.changes.email
-        case Repo.exists?(query) do
-          false -> Repo.insert!(changeset)
-          _ -> nil
-        end
-      end
-    )
+    |> Enum.each(fn changeset -> Repo.insert!(changeset) end)
     {:ok, state}
   end
 
