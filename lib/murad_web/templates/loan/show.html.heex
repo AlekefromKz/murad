@@ -1,0 +1,23 @@
+<h1>Show Loan</h1>
+
+<ul>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @loan.email %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @loan.amount %>
+  </li>
+
+  <li>
+    <strong>Term:</strong>
+    <%= @loan.term %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.loan_path(@conn, :edit, @loan) %></span> |
+<span><%= link "Back", to: Routes.loan_path(@conn, :index) %></span>

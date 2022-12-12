@@ -1,0 +1,23 @@
+<.form let={f} for={@changeset} action={@action}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Sorry, you are not eligible for the loan</p>
+    </div>
+  <% end %>
+
+  <%= label f, :email %>
+  <%= text_input f, :email %>
+  <%= error_tag f, :email %>
+
+  <%= label f, :amount %>
+  <%= number_input f, :amount, step: "any" %>
+  <%= error_tag f, :amount %>
+
+  <%= label f, :term %>
+  <%= number_input f, :term %>
+  <%= error_tag f, :term %>
+
+  <div>
+    <%= submit "Save" %>
+  </div>
+</.form>

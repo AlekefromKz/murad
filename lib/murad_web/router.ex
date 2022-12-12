@@ -17,6 +17,8 @@ defmodule MuradWeb.Router do
   scope "/", MuradWeb do
     pipe_through :browser
 
+    resources "/users", UserController
+    resources "/loans", LoanController
     get "/", PageController, :index
   end
 
